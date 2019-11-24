@@ -2,40 +2,103 @@
 <html>
 <head>
 	<title>Courses</title>
+	<link rel="stylesheet" type="text/css" href="style1.0.css">
+
 </head>
 <body>
-	<ul>
-		<li><a href="file:///C:/Users/GT/Desktop/GMC/index.html">Home</a></li>
-		<li><a href="file:///C:/Users/GT/Desktop/GMC/courses.html">Courses</a></li>
-		<li><a href="file:///C:/Users/GT/Desktop/GMC/Contact.html">Contact</a></li>
-	</ul>
+	<div class="header">
+  <a href="file:///C:/Users/GT/Desktop/GMC/index.html" class="logo">Logo here</a>
+  <div class="header-right">
+    <a class="active" href="file:///C:/Users/GT/Desktop/GMC/index.html">Home</a>
+    <a href="file:///C:/Users/GT/Desktop/GMC/courses.html">Courses</a>
+    <a href="file:///C:/Users/GT/Desktop/GMC/Contact.html">Contact</a>
+  </div>
+</div>
+
 
 	<h1 align="center"><b>Courses</b></h1>
 	<p>
 		<h3 align="center">feedback</h3>
 	</p>
-	<div style="text-align: center;">
-		<button type="button"><b>B</b></button>
-		<button type="button"><i>I</i></button>
-		<button type="button">Underline</button>
-		<select>
-			<option>20px</option>
-			<option>15px</option>
-			<option>10px</option>
-			<option>5px</option>
+	
+	<p style="text-align: center;">
+		<button onclick="bold()" type="button"><b>B</b></button>
+		<button onclick="italic()" type="button"><i>I</i></button>
+		<button onclick="underline()" type="button">Underline</button>
+	</p>
+	<div id="txtbox" style="text-align: center;">
+		
+		<select id="input-font" class="input" onchange="fontsize (this)">
+			<option value="20px" selected="selected">20px</option>
+			<option value="10px">10px</option>
 		</select>
-		<select>
-			<option>Arial</option>
-			<option>Times new roman</option>
-			<option>Gothic</option>
+		<select id="input-font" class="input"  onchange="changeFont (this);">
+      <option value="Times New Roman" selected ="selected">Times New Roman</option>
+      <option value="Arial">Arial</option>
 		</select>
 
 	</div>
 	<div style="text-align: center;">
-		<textarea rows="30" cols="100"></textarea>
+		<textarea id="myText" rows="30" cols="100"></textarea>
 	</div>
 	
-
-
 </body>
+<script>
+	
+	function	bold(){
+		var curWeight = document.getElementById('myText').style.fontWeight;
+		console.log(curWeight)
+
+		if (curWeight == 'bold') {
+			document.getElementById('myText').style.fontWeight	= 'normal';
+		}
+		else	{
+			document.getElementById('myText').style.fontWeight = 'bold';
+		}
+	}
+
+	function	italic(){
+		var curWeight = document.getElementById('myText').style.fontStyle;
+		console.log(curWeight)
+
+		if (curWeight == 'italic') {
+			document.getElementById('myText').style.fontStyle	= 'normal';
+		}
+		else	{
+			document.getElementById('myText').style.fontStyle = 'italic';
+		}
+	}
+
+	function	underline(){
+		var curWeight = document.getElementById('myText').style.textDecoration;
+		console.log(curWeight)
+
+		if (curWeight == 'underline') {
+			document.getElementById('myText').style.textDecoration	= '';
+		}
+		else	{
+			document.getElementById('myText').style.textDecoration = 'underline';
+		}
+	}
+	var changeFont = function(font){
+  	console.log(font.value)
+    document.getElementById("myText").style.fontFamily = font.value;
+}
+	function fontsize(){
+		var	fontSize = document.getElementById("myText").style.fontSize;
+		console.log(fontsize)
+
+		if (fontSize == 'fontsize') {
+			document.getElementById('myText').style.fontSize = '20px';
+		}
+		else {
+			document.getElementById("myText").style.fontSize = '10px';
+		}
+	}
+
+
+		
+
+
+</script>
 </html>
